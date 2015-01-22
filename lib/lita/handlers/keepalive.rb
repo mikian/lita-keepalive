@@ -4,15 +4,13 @@ module Lita
       config :url, required: true, type: String
 
       http.get "/ping" do |request, response|
-        log.info "pong"
         response.body << "pong"
       end
 
-      def initialize(*args)
-        super
-
+      on(:loaded) do
+        log.info "Starting Keepalive to #{config.url}/ping"
         every(60) do
-          log.info "ping"
+          log.info "Keepalive ping..."
           http.get "#{config.url}/ping"
         end
       end

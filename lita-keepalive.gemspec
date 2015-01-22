@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "lita-keepalive"
-  spec.version       = '0.0.1'
+  spec.version       = '0.0.2'
   spec.authors       = ["Mikko Kokkonen"]
   spec.email         = ["mikko@mikian.com"]
   spec.summary       = %q{Lita Plugin for keeping Heroku instance alive}
