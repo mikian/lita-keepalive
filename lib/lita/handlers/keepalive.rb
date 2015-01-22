@@ -3,15 +3,14 @@ module Lita
     class Keepalive < Handler
       config :url, required: true, type: String
 
-      http.get '/ping', :ping
+      http.get "/ping" do |request, response|
+        response.body << "pong"
+      end
 
       def initialize(*args)
         super
       end
 
-      def ping
-        response.write('pong')
-      end
     end
 
     Lita.register_handler(Keepalive)
