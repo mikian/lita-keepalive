@@ -1,7 +1,7 @@
 module Lita
   module Handlers
     class Keepalive < Handler
-      config :url, require: true, type: String
+      config :url, required: true, type: String
 
       http.get '/ping', :ping
 
