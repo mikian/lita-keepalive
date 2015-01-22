@@ -9,6 +9,10 @@ module Lita
 
       def initialize(*args)
         super
+
+        every(60) do
+          http.get "#{config.url}/ping"
+        end
       end
 
     end
