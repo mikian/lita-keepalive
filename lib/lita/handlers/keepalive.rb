@@ -2,6 +2,7 @@ module Lita
   module Handlers
     class Keepalive < Handler
       config :url, required: true, type: String
+      config :minutes, required: true, type: Integer
 
       http.get "/ping" do |request, response|
         response.body << "pong"
@@ -9,7 +10,7 @@ module Lita
 
       on(:loaded) do
         log.info "Starting Keepalive to #{config.url}/ping"
-        every(60) do
+        every(config.minutes) do
           log.info "Keepalive ping..."
           http.get "#{config.url}/ping"
         end
