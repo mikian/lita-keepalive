@@ -1,6 +1,6 @@
 # Lita::Keepalive
 
-TODO: Write a gem description
+Keepalive plugin for Lita and heroku - pings its own route periodically to keep Heroku instance alive.
 
 ## Installation
 
@@ -21,6 +21,13 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+```ruby
+Lita.configure do |config|
+  config.handlers.keepalive.minutes = 1
+  config.handlers.keepalive.url = 'http://your-lita-robot-name.herokuapp.com'
+end
+```
 
 ## Contributing
 

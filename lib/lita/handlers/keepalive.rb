@@ -10,7 +10,7 @@ module Lita
 
       on(:loaded) do
         log.info "Starting Keepalive to #{config.url}/ping"
-        every(config.minutes) do
+        every(config.minutes * 60) do
           log.info "Keepalive ping..."
           http.get "#{config.url}/ping"
         end
